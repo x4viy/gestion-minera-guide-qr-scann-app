@@ -1,14 +1,14 @@
 import 'package:logger/logger.dart';
-import 'package:pedidos/src/core/error/exceptions.dart';
-import 'package:pedidos/src/core/network/api_service.dart';
-import 'package:pedidos/src/core/utils/constants/network_constant.dart';
-import 'package:pedidos/src/features/auth/data/models/session_model.dart';
-import 'package:pedidos/src/features/auth/data/models/user_model.dart';
+import 'package:loadin_guide_scann/src/core/error/exceptions.dart';
+import 'package:loadin_guide_scann/src/core/network/api_service.dart';
+import 'package:loadin_guide_scann/src/core/utils/constants/network_constant.dart';
+import 'package:loadin_guide_scann/src/features/auth/data/models/session_model.dart';
+import 'package:loadin_guide_scann/src/features/auth/data/models/user_model.dart';
 
 abstract interface class AuthRemoteDataSource {
   Future<Session?> currentUserSession();
 
-  Future<UserModel> loginWithCiPassword({
+  Future<Session> loginWithCiPassword({
     required String ci,
     required String password,
   });
@@ -39,28 +39,28 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<UserModel> loginWithCiPassword({
+  Future<Session> loginWithCiPassword({
     required String ci,
     required String password,
   }) async {
     try {
-      return UserModel.fromJson({'login': 'admin', 'password': 'admin1977'});
-
       final response = await _apiService.postData(
           getUserLoginPath(),
           {
-            'login': 'admin',
-            'password': 'admin1977',
+            'numberIdentification': ci,
+            'password': password,
           },
           null);
       if (response == null || response is! Map<String, dynamic>) {
         logger.e(
-            'Failed to login: Invalid response format or null response received.');
+            '❌ Failed to login: Invalid response format or null response received.');
         throw ServerException(
-            'Invalid response format or null response received.', null);
+            '❌ Invalid response format or null response received.', null);
       }
       logger.i('Login Response: $response');
-      return UserModel.fromJson(response);
+      var session = Session.fromJson(response);
+      session.user = UserModel(ci: ci);
+      return session;
     } on ServerException catch (e) {
       throw ServerException(e.message, e.statusCode);
     } catch (e) {

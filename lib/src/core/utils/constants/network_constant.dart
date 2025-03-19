@@ -1,7 +1,7 @@
-const String baseUrl = "http://192.168.137.47:3000";
-// the apikey needs to be on env file and added to gitignore / only for testing
-const String apiKey = "";
-const String userLoginPath = '/user/login';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+final baseUrl = dotenv.get('BASE_URL');
+const String userLoginPath = '/api/v1/login';
 
 String getUserLoginPath() {
   return '$baseUrl$userLoginPath';
@@ -11,11 +11,6 @@ String getBaseUrl() {
   return baseUrl;
 }
 
-String getApiKeyPath() {
-  return "?api-key=$apiKey";
-}
-
 // String getArticlePath(int period) {
 //   return "all-sections/${period.toString()}.json${getApiKeyPath()}";
 // }
-

@@ -1,6 +1,6 @@
 {
-    "name": "pedidos",
-    "short_name": "pedidos",
+    "name": "loadin_guide_scann",
+    "short_name": "loadin_guide_scann",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

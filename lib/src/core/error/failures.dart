@@ -19,40 +19,24 @@ abstract class Failure {
 class ServerFailure extends Failure {
   final int? statusCode;
 
-  const ServerFailure(String errorMessage, this.statusCode)
-      : super(
-          errorMessage,
-        );
+  const ServerFailure(super.errorMessage, this.statusCode);
 }
 
 /// Cancel token failure
 class CancelTokenFailure extends Failure {
   final int? statusCode;
 
-  const CancelTokenFailure(String errorMessage, this.statusCode)
-      : super(
-          errorMessage,
-        );
+  const CancelTokenFailure(super.errorMessage, this.statusCode);
 }
 
-class MdbsScannerFailure extends Failure {
-  const MdbsScannerFailure(String errorMessage)
-      : super(
-          errorMessage,
-        );
+class RetrieveToken extends Failure {
+  const RetrieveToken(super.errorMessage);
 }
 
 // no internet connection failure
 class NoInternetConnectionFailure extends Failure {
   const NoInternetConnectionFailure()
       : super(
-          'No internet connection',
-        );
-}
-
-class BleScanFailure extends Failure {
-  const BleScanFailure(String errorMessage)
-      : super(
-          errorMessage,
+          'Sin conexión a internet',
         );
 }

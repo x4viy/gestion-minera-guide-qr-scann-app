@@ -1,0 +1,2 @@
+/home/x4vy/proyectos/minas_orellana/gestion-mineria-guide-qr-scann-app/android/app/.cxx/Debug/2z3f1g6s/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/x4vy/proyectos/minas_orellana/gestion-mineria-guide-qr-scann-app/android/app/.cxx/Debug/2z3f1g6s/armeabi-v7a/CMakeFiles/rebuild_cache.dir

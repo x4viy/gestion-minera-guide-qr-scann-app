@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:pedidos/src/core/error/exceptions.dart';
-import 'package:pedidos/src/core/utils/constants/network_constant.dart';
+import 'package:loadin_guide_scann/src/core/error/exceptions.dart';
+import 'package:loadin_guide_scann/src/core/utils/constants/network_constant.dart';
 
 class ApiService<T> {
   // final _storage = LocalStorageRepositoryImplementation();
@@ -15,7 +15,7 @@ class ApiService<T> {
   )..interceptors.add(
       InterceptorsWrapper(onRequest: (options, handler) async {
         // final authToken = await _storage.getToken();
-        options.headers['Authorization'] = 'Bearer $authToken';
+        // options.headers['Authorization'] = 'Bearer $authToken';
         options.headers['Authorization'] = 'Bearer';
         logger.i(options.uri);
         // logger.i('token $authToken');
@@ -58,6 +58,10 @@ class ApiService<T> {
     } on DioException catch (e, s) {
       logger.e('$s');
       bool hasResponse = e.response != null;
+      if (hasResponse && e.response?.data['message'] != null) {
+        throw ServerException(
+            e.response?.data['message'], e.response?.statusCode);
+      }
       throw ServerException(
           hasResponse ? "$e.response" : "No response", e.response?.statusCode);
     }

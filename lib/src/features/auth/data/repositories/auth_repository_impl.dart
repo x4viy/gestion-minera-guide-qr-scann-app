@@ -1,17 +1,22 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:pedidos/src/core/common/entities/user.dart';
-import 'package:pedidos/src/core/error/exceptions.dart';
-import 'package:pedidos/src/core/error/failures.dart';
-import 'package:pedidos/src/core/network/connection_checker.dart';
-import 'package:pedidos/src/features/auth/data/datasources/remote/auth_remote_data_source.dart';
-import 'package:pedidos/src/features/auth/domain/repository/auth_repository.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/user.dart';
+import 'package:loadin_guide_scann/src/core/error/exceptions.dart';
+import 'package:loadin_guide_scann/src/core/error/failures.dart';
+import 'package:loadin_guide_scann/src/core/network/connection_checker.dart';
+import 'package:loadin_guide_scann/src/core/secrets/app_secrets.dart';
+import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
+import 'package:loadin_guide_scann/src/features/auth/data/datasources/remote/auth_remote_data_source.dart';
+import 'package:loadin_guide_scann/src/features/auth/data/models/session_model.dart';
+import 'package:loadin_guide_scann/src/features/auth/domain/repository/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
   final ConnectionChecker connectionChecker;
+  final AppSecretsService appSecretsService;
   const AuthRepositoryImpl(
     this.remoteDataSource,
     this.connectionChecker,
+    this.appSecretsService,
   );
 
   @override
@@ -28,61 +33,40 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   Future<Either<Failure, User>> _getUser(
-    Future<User> Function() fn,
+    Future<Session> Function() fn,
   ) async {
     try {
       if (!await (connectionChecker.isConnected)) {
         return left(const NoInternetConnectionFailure());
       }
-      final user = await fn();
 
-      return right(user);
+      final session = await fn();
+
+      if (session.token == null) {
+        logger.e('❌ Failed to login: no token received.');
+        return left(const ServerFailure('No authorizado', 401));
+      }
+      await appSecretsService.setSession(session);
+      return right(session.user as User);
     } on ServerException catch (e) {
       return left(ServerFailure(e.message, e.statusCode));
     }
   }
 
-  // @override
-  // Future<Either<Failure, User>> signUpWithEmailPassword({
-  //   required String name,
-  //   required String email,
-  //   required String password,
-  // }) async {
-  //   return _getUser(
-  //     () async => await remoteDataSource.signUpWithEmailPassword(
-  //       name: name,
-  //       email: email,
-  //       password: password,
-  //     ),
-  //   );
-  // }
-
+  @override
   Future<Either<Failure, User>> currentUser() async {
-    // try {
-    //   if (!await (connectionChecker.isConnected)) {
-    //     final session = remoteDataSource.currentUserSession;
+    // checkar aqui el local storage y expiracion del token
+    try {
+      final token = await appSecretsService.getToken();
+      if (token == null) {
+        return left(const RetrieveToken('No existe inicio de sesión previo'));
+      }
 
-    //     if (session == null) {
-    //       return left(Failure('User not logged in!'));
-    //     }
+      final user = await appSecretsService.getUser();
 
-    //     return right(
-    //       UserModel(
-    //         id: session.user.id,
-    //         email: session.user.email ?? '',
-    //         name: '',
-    //       ),
-    //     );
-    //   }
-    //   final user = await remoteDataSource.getCurrentUserData();
-    //   if (user == null) {
-    //     return left(Failure('User not logged in!'));
-    //   }
-
-    //   return right(user);
-    // } on ServerException catch (e) {
-    //   return left(Failure(e.message));
-    // }
-    throw UnimplementedError();
+      return right(user);
+    } catch (e) {
+      return left(RetrieveToken('No se pudo recuperar credenciales'));
+    }
   }
 }

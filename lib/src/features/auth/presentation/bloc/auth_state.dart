@@ -20,3 +20,5 @@ final class AuthFailure extends AuthState {
 }
 
 class AuthUnauthenticated extends AuthState {}
+
+class AuthTokenExpired extends AuthState {}

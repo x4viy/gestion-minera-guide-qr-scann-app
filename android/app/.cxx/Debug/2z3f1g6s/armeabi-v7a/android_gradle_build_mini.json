@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/x4vy/Flutter-Sdk/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/x4vy/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/x4vy/proyectos/minas_orellana/gestion-mineria-guide-qr-scann-app/android/app/.cxx/Debug/2z3f1g6s/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/x4vy/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/x4vy/proyectos/minas_orellana/gestion-mineria-guide-qr-scann-app/android/app/.cxx/Debug/2z3f1g6s/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

@@ -1,0 +1,1 @@
+/home/x4vy/proyectos/minas_orellana/gestion-mineria-guide-qr-scann-app/build/app/intermediates/cxx/Debug/2z3f1g6s/obj/arm64-v8a

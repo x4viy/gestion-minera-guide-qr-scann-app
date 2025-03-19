@@ -1,11 +1,12 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:pedidos/src/core/common/entities/user.dart';
-import 'package:pedidos/src/core/error/failures.dart';
-import 'package:pedidos/src/core/usecase/usecase.dart';
-import 'package:pedidos/src/features/auth/domain/repository/auth_repository.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/user.dart';
+import 'package:loadin_guide_scann/src/core/error/failures.dart';
+import 'package:loadin_guide_scann/src/core/usecase/usecase.dart';
+import 'package:loadin_guide_scann/src/features/auth/domain/repository/auth_repository.dart';
 
 class UserLogin implements UseCase<User, UserLoginParams> {
   final AuthRepository authRepository;
+
   const UserLogin(this.authRepository);
 
   @override

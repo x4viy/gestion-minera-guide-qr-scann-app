@@ -34,6 +34,7 @@ void _initAuth() {
       () => AuthRepositoryImpl(
         serviceLocator(),
         serviceLocator(),
+        serviceLocator(),
       ),
     )
     // Usecases
@@ -43,12 +44,11 @@ void _initAuth() {
     //   ),
     // )
     ..registerFactory(
-      () => UserLogin(
-        serviceLocator(),
-      ),
+      () => UserLogin(serviceLocator()),
     )
     ..registerFactory(
       () => CurrentUser(
+        serviceLocator(),
         serviceLocator(),
       ),
     )

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pedidos/src/core/common/app_user/app_user_cubit.dart';
-import 'package:pedidos/src/core/common/entities/user.dart';
-import 'package:pedidos/src/core/usecase/usecase.dart';
-import 'package:pedidos/src/features/auth/domain/usecases/current_user.dart';
-import 'package:pedidos/src/features/auth/domain/usecases/user_login.dart';
+import 'package:loadin_guide_scann/src/core/common/app_user/app_user_cubit.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/user.dart';
+import 'package:loadin_guide_scann/src/core/usecase/usecase.dart';
+import 'package:loadin_guide_scann/src/features/auth/domain/usecases/current_user.dart';
+import 'package:loadin_guide_scann/src/features/auth/domain/usecases/user_login.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -22,8 +22,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _appUserCubit = appUserCubit,
         super(AuthInitial()) {
     on<AuthEvent>((_, emit) => emit(AuthLoading()));
-    on<AuthLogin>(_onAuthLogin);
     on<AuthIsUserLoggedIn>(_isUserLoggedIn);
+    on<AuthLogin>(_onAuthLogin);
   }
 
   void _isUserLoggedIn(

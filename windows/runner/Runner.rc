@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pedidos" "\0"
+            VALUE "FileDescription", "loadin_guide_scann" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pedidos" "\0"
+            VALUE "InternalName", "loadin_guide_scann" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pedidos.exe" "\0"
-            VALUE "ProductName", "pedidos" "\0"
+            VALUE "OriginalFilename", "loadin_guide_scann.exe" "\0"
+            VALUE "ProductName", "loadin_guide_scann" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

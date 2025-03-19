@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pedidos/src/core/common/entities/user.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/user.dart';
 
 part 'app_user_state.dart';
 

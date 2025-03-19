@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pedidos/src/core/theme/app_pallete.dart';
+import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
 
 class AuthGradientButton extends StatelessWidget {
   final String buttonText;

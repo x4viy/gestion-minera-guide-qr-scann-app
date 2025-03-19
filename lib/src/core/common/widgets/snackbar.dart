@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pedidos/src/core/theme/app_pallete.dart';
+import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
 
 class SnackBarUtil {
   static void showSnackBar(BuildContext context, String text) {

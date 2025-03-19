@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pedidos/src/core/common/widgets/loader.dart';
-import 'package:pedidos/src/core/common/widgets/snackbar.dart';
-import 'package:pedidos/src/core/theme/app_pallete.dart';
-import 'package:pedidos/src/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:pedidos/src/features/auth/presentation/widgets/auth_field.dart';
-import 'package:pedidos/src/features/auth/presentation/widgets/auth_gradient_button.dart';
-import 'package:pedidos/src/features/home/presentation/pages/home_page.dart';
+import 'package:loadin_guide_scann/src/core/common/widgets/loader.dart';
+import 'package:loadin_guide_scann/src/core/common/widgets/snackbar.dart';
+import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
+import 'package:loadin_guide_scann/src/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:loadin_guide_scann/src/features/auth/presentation/widgets/auth_field.dart';
+import 'package:loadin_guide_scann/src/features/auth/presentation/widgets/auth_gradient_button.dart';
+import 'package:loadin_guide_scann/src/features/home/presentation/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   static route() => MaterialPageRoute(
@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 30),
                   AuthField(
-                    hintText: 'Usuario',
+                    hintText: 'Cédula de identidad',
                     controller: ciController,
                   ),
                   const SizedBox(height: 15),

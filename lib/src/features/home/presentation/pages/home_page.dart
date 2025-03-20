@@ -1,4 +1,6 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
 
 class HomePage extends StatefulWidget {
   static route() => MaterialPageRoute(
@@ -40,6 +42,34 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: _buttomNavigationBar(context),
     );
   }
+}
+
+Widget _buttomNavigationBar(BuildContext context) {
+  return CurvedNavigationBar(
+    backgroundColor: Colors.black,
+    items: <Widget>[
+      Icon(
+        Icons.settings,
+        size: 30,
+        color: Colors.black,
+      ),
+      Icon(
+        Icons.home_rounded,
+        size: 30,
+        color: Colors.black,
+      ),
+      Icon(
+        Icons.qr_code_scanner_rounded,
+        size: 30,
+        color: Colors.black,
+      ),
+    ],
+    onTap: (index) {
+      logger.d(index);
+    },
+    animationDuration: const Duration(milliseconds: 300),
+  );
 }

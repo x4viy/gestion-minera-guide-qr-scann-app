@@ -35,39 +35,30 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-
   # Dependency Injection
   get_it: ^8.0.2
-
   # Functional Programming
   fpdart: ^1.1.1
-
   # State manager
   flutter_bloc: ^9.1.0
-
   # Internet check connection
   internet_connection_checker_plus: ^2.5.0
-
   # Path Provider
   path_provider: ^2.1.5
-
   # Print logs 
   logger: ^2.2.0
-
   # Dio for http requests
   dio: ^5.8.0
-
   # loading animations
   loading_animation_widget: ^1.3.0
-
   # Fonts
   google_fonts: ^6.2.1
-
   # Flutter Secure Storage
   flutter_secure_storage: ^9.2.4
-
   # For use .env file
   flutter_dotenv: ^5.2.1
+  # Button bar menu
+  curved_navigation_bar: ^1.0.6 #latest version
 
 
 

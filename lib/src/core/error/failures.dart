@@ -33,6 +33,10 @@ class RetrieveToken extends Failure {
   const RetrieveToken(super.errorMessage);
 }
 
+class LogoutSessionFailure extends Failure {
+  const LogoutSessionFailure() : super('No se puede cerrar la sesión');
+}
+
 // no internet connection failure
 class NoInternetConnectionFailure extends Failure {
   const NoInternetConnectionFailure()

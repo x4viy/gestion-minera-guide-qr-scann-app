@@ -5,6 +5,7 @@ import 'package:loadin_guide_scann/di/init_dependencies.dart';
 import 'package:loadin_guide_scann/src/core/theme/theme.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/pages/login_page.dart';
+import 'package:loadin_guide_scann/src/features/home/presentation/bloc/home_page_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,9 @@ void main() async {
     providers: [
       BlocProvider(
         create: (_) => serviceLocator<AuthBloc>(),
+      ),
+      BlocProvider(
+        create: (_) => serviceLocator<HomePageBloc>(),
       ),
     ],
     child: const MyApp(),
@@ -38,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pedidos App',
+      title: 'Scanner Guía de Carga',
       theme: AppTheme.darkThemeMode,
       home: const LoginPage(),
     );

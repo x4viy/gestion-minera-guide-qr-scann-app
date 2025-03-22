@@ -4,6 +4,7 @@ import 'package:loadin_guide_scann/src/core/error/exceptions.dart';
 import 'package:loadin_guide_scann/src/core/error/failures.dart';
 import 'package:loadin_guide_scann/src/core/network/connection_checker.dart';
 import 'package:loadin_guide_scann/src/core/secrets/app_secrets.dart';
+import 'package:loadin_guide_scann/src/core/usecase/usecase.dart';
 import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
 import 'package:loadin_guide_scann/src/features/auth/data/datasources/remote/auth_remote_data_source.dart';
 import 'package:loadin_guide_scann/src/features/auth/data/models/session_model.dart';
@@ -67,6 +68,16 @@ class AuthRepositoryImpl implements AuthRepository {
       return right(user);
     } catch (e) {
       return left(RetrieveToken('No se pudo recuperar credenciales'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, NoParams>> logout() async {
+    try {
+      await appSecretsService.clearSession();
+      return right(NoParams());
+    } catch (e) {
+      return left(LogoutSessionFailure());
     }
   }
 }

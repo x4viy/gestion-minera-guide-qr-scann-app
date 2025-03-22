@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 15),
                   AuthField(
-                    hintText: 'Contrseña',
+                    hintText: 'Contraseña',
                     controller: passwordController,
                     isObscureText: true,
                   ),

@@ -9,6 +9,8 @@ import 'package:loadin_guide_scann/src/features/auth/data/repositories/auth_repo
 import 'package:loadin_guide_scann/src/features/auth/domain/repository/auth_repository.dart';
 import 'package:loadin_guide_scann/src/features/auth/domain/usecases/current_user.dart';
 import 'package:loadin_guide_scann/src/features/auth/domain/usecases/user_login.dart';
+import 'package:loadin_guide_scann/src/features/auth/domain/usecases/user_logout.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:loadin_guide_scann/src/features/home/presentation/bloc/home_page_bloc.dart';
 
 part 'init_dependencies.main.dart';

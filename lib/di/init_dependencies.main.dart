@@ -3,8 +3,12 @@ part of 'init_dependencies.dart';
 final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
+  _initUtils();
   _initAuth();
+  _initHomePage();
+}
 
+void _initUtils() {
   serviceLocator.registerFactory(() => InternetConnection());
   serviceLocator.registerFactory(() => ApiService());
   serviceLocator.registerFactory(() => AppSecretsService());
@@ -18,6 +22,12 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerLazySingleton(
     () => AppUserCubit(),
+  );
+}
+
+void _initHomePage() {
+  serviceLocator.registerLazySingleton(
+    () => HomePageBloc(),
   );
 }
 
@@ -44,6 +54,9 @@ void _initAuth() {
     //   ),
     // )
     ..registerFactory(
+      () => UserLogout(serviceLocator()),
+    )
+    ..registerFactory(
       () => UserLogin(serviceLocator()),
     )
     ..registerFactory(
@@ -57,6 +70,7 @@ void _initAuth() {
       () => AuthBloc(
         // userSignUp: serviceLocator(),
         userLogin: serviceLocator(),
+        userLogout: serviceLocator(),
         currentUser: serviceLocator(),
         appUserCubit: serviceLocator(),
       ),

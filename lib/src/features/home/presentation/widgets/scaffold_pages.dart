@@ -32,3 +32,39 @@ class ConfigPage extends StatelessWidget {
     );
   }
 }
+
+class ScannerQrPage extends StatelessWidget {
+  final BuildContext context;
+  const ScannerQrPage({super.key, required this.context});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          'Scanner QR',
+          style: TextStyle(fontSize: 30),
+        ),
+      ],
+    );
+  }
+}
+
+class HomeIdle extends StatelessWidget {
+  final BuildContext context;
+  const HomeIdle({super.key, required this.context});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          'Inicio',
+          style: TextStyle(fontSize: 30),
+        ),
+      ],
+    );
+  }
+}

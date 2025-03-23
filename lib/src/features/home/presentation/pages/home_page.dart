@@ -20,14 +20,8 @@ class HomePage extends StatefulWidget {
 List<Widget> _pages(BuildContext ctx) {
   return [
     ConfigPage(context: ctx),
-    const Text(
-      'Home Page',
-      style: TextStyle(fontSize: 30),
-    ),
-    const Text(
-      'Scanner',
-      style: TextStyle(fontSize: 30),
-    ),
+    HomeIdle(context: ctx),
+    ScannerQrPage(context: ctx),
   ];
 }
 

@@ -21,7 +21,7 @@ List<Widget> _pages(BuildContext ctx) {
   return [
     ConfigPage(context: ctx),
     HomeIdle(context: ctx),
-    ScannerQrPage(context: ctx),
+    QRScannerScreen(context: ctx),
   ];
 }
 

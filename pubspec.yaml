@@ -59,6 +59,8 @@ dependencies:
   flutter_dotenv: ^5.2.1
   # Button bar menu
   curved_navigation_bar: ^1.0.6 #latest version
+  # QR Code Scanner
+  qr_code_scanner: ^1.0.1 # version for older android devices 
 
 
 

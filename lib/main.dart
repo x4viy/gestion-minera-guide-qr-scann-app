@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:loadin_guide_scann/di/init_dependencies.dart';
+import 'package:loadin_guide_scann/src/core/common/qr_scann/qr_scann_cubit.dart';
 import 'package:loadin_guide_scann/src/core/theme/theme.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/pages/login_page.dart';
@@ -18,6 +19,9 @@ void main() async {
       ),
       BlocProvider(
         create: (_) => serviceLocator<HomePageBloc>(),
+      ),
+      BlocProvider(
+        create: (_) => serviceLocator<QRScannCubit>(),
       ),
     ],
     child: const MyApp(),

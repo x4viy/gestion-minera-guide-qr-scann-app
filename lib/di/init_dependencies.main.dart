@@ -23,6 +23,10 @@ void _initUtils() {
   serviceLocator.registerLazySingleton(
     () => AppUserCubit(),
   );
+
+  serviceLocator.registerLazySingleton(
+    () => QRScannCubit(),
+  );
 }
 
 void _initHomePage() {

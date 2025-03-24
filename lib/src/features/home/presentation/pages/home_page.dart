@@ -17,11 +17,11 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-List<Widget> _pages(BuildContext ctx) {
+List<Widget> _pages() {
   return [
-    ConfigPage(context: ctx),
-    HomeIdle(context: ctx),
-    QRScannerScreen(context: ctx),
+    ConfigPage(),
+    HomeIdle(),
+    MobileScannerSimple(),
   ];
 }
 
@@ -75,7 +75,7 @@ Widget _body(BuildContext context, HomePageState state) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _pages(context).elementAt(state.tabIndex),
+        Expanded(child: _pages().elementAt(state.tabIndex)),
       ],
     ),
   );

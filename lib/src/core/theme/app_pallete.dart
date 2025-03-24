@@ -7,6 +7,8 @@ class AppPallete {
   static const Color gradient3 = Color.fromRGBO(255, 159, 124, 1);
   static const Color borderColor = Color.fromRGBO(52, 51, 67, 1);
   static const Color redColor = Color.fromRGBO(123, 50, 63, 1);
+  static const Color redWaring = Color.fromRGBO(244, 67, 54, 1);
+  static const Color greenOk = Color.fromRGBO(0, 162, 59, 1);
 
   // blue gradient
   static const Color gradientBlue1 = Color.fromRGBO(18, 82, 177, 1);

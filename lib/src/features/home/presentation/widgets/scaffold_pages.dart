@@ -105,97 +105,6 @@ class QRScannerScreen extends StatelessWidget {
   }
 }
 
-// class _QRViewWidget extends StatefulWidget {
-//   @override
-//   __QRViewWidgetState createState() => __QRViewWidgetState();
-// }
-
-// class __QRViewWidgetState extends State<_QRViewWidget>
-//     with WidgetsBindingObserver {
-//   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-//   final MobileScannerController qrController = MobileScannerController();
-//   StreamSubscription<Object?>? _subscription;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     // Start listening to lifecycle changes.
-//     WidgetsBinding.instance.addObserver(this);
-
-//     // Finally, start the scanner itself.
-//     unawaited(qrController.start());
-//   }
-
-//   @override
-//   Future<void> dispose() async {
-//     // Stop listening to lifecycle changes.
-//     WidgetsBinding.instance.removeObserver(this);
-//     // Stop listening to the barcode events.
-//     unawaited(_subscription?.cancel());
-//     _subscription = null;
-//     // Dispose the widget itself.
-//     super.dispose();
-//     // Finally, dispose of the controller.
-//     await qrController.dispose();
-//   }
-
-//   // void _onQRViewCreated(QRViewController controller) {
-//   //   this.controller = controller;
-//   //   controller.scannedDataStream.listen((scanData) {
-//   //     // Only trigger QRScanned if the Bloc is not in a loading state
-//   //     if (context.read<QRScannCubit>().state is! QRLoading) {
-//   //       controller.pauseCamera();
-//   //       BlocProvider.of<QRScannCubit>(context)
-//   //           .scanQRCode(scanData.code.toString());
-//   //     }
-//   //   });
-//   // }
-
-//   @override
-//   void didChangeAppLifecycleState(AppLifecycleState state) {
-//     // If the controller is not ready, do not try to start or stop it.
-//     // Permission dialogs can trigger lifecycle changes before the controller is ready.
-//     if (!qrController.value.hasCameraPermission) {
-//       return;
-//     }
-
-//     switch (state) {
-//       case AppLifecycleState.detached:
-//       case AppLifecycleState.hidden:
-//       case AppLifecycleState.paused:
-//         return;
-//       case AppLifecycleState.resumed:
-//         unawaited(qrController.start());
-//       case AppLifecycleState.inactive:
-//         // Stop the scanner when the app is paused.
-//         // Also stop the barcode events subscription.
-//         unawaited(_subscription?.cancel());
-//         _subscription = null;
-//         unawaited(qrController.stop());
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     var scanArea = (MediaQuery.of(context).size.width < 400 ||
-//             MediaQuery.of(context).size.height < 400)
-//         ? 150.0
-//         : 300.0;
-
-//     return QRView(
-//       key: qrKey,
-//       onQRViewCreated: _onQRViewCreated,
-//       overlay: QrScannerOverlayShape(
-//         borderColor: Colors.red,
-//         borderRadius: 10,
-//         borderLength: 30,
-//         borderWidth: 10,
-//         cutOutSize: scanArea,
-//       ),
-//     );
-//   }
-// }
-
 class MobileScannerSimple extends StatefulWidget {
   const MobileScannerSimple({super.key});
 
@@ -287,7 +196,7 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple>
                 child: const Icon(
                   Icons.check_circle,
                   color: AppPallete.greenOk,
-                  size: 68,
+                  size: 96,
                 ),
               ),
             ),

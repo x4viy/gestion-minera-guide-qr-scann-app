@@ -17,7 +17,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 45,
               height: 5,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(8)),
               ),
             ),
@@ -30,7 +30,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 5,
               height: 45,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(8)),
               ),
             ),
@@ -43,7 +43,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 45,
               height: 5,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius: BorderRadius.only(topRight: Radius.circular(8)),
               ),
             ),
@@ -56,7 +56,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 5,
               height: 45,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius: BorderRadius.only(topRight: Radius.circular(8)),
               ),
             ),
@@ -69,7 +69,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 45,
               height: 5,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8)),
               ),
             ),
@@ -82,7 +82,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 5,
               height: 45,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8)),
               ),
             ),
@@ -95,7 +95,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 45,
               height: 5,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius:
                     BorderRadius.only(bottomRight: Radius.circular(8)),
               ),
@@ -109,7 +109,7 @@ Widget overlayBuilder(BuildContext context) {
               width: 5,
               height: 45,
               decoration: BoxDecoration(
-                color: AppPallete.redWaring,
+                color: AppPallete.blueInfo,
                 borderRadius:
                     BorderRadius.only(bottomRight: Radius.circular(8)),
               ),

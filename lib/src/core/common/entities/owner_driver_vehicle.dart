@@ -25,17 +25,3 @@ class OwnerDriverVehicle {
     this.parent,
   });
 }
-
-export interface OwnerDriverVehicle {
-  id: number;
-  name: string;
-  lastname: string;
-  status?: string;
-  number_identification: string;
-  direction: string;
-  phone1: string;
-  phone2: string;
-  type_driver?: string;
-  parentId?: number;
-  parent?: OwnerDriverVehicle;
-}

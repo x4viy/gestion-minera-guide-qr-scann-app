@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:loadin_guide_scann/di/init_dependencies.dart';
-import 'package:loadin_guide_scann/src/core/common/qr_scann/qr_scann_cubit.dart';
 import 'package:loadin_guide_scann/src/core/theme/theme.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:loadin_guide_scann/src/features/auth/presentation/pages/login_page.dart';
 import 'package:loadin_guide_scann/src/features/home/presentation/bloc/home_page_bloc.dart';
+import 'package:loadin_guide_scann/src/features/qr_scann/presentation/bloc/qr_scann_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,7 @@ void main() async {
         create: (_) => serviceLocator<HomePageBloc>(),
       ),
       BlocProvider(
-        create: (_) => serviceLocator<QRScannCubit>(),
+        create: (_) => serviceLocator<QrScannBloc>(),
       ),
     ],
     child: const MyApp(),

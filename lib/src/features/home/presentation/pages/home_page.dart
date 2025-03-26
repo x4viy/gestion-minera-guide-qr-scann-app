@@ -6,6 +6,7 @@ import 'package:loadin_guide_scann/src/features/auth/presentation/bloc/auth_bloc
 import 'package:loadin_guide_scann/src/features/auth/presentation/pages/login_page.dart';
 import 'package:loadin_guide_scann/src/features/home/presentation/bloc/home_page_bloc.dart';
 import 'package:loadin_guide_scann/src/features/home/presentation/widgets/scaffold_pages.dart';
+import 'package:loadin_guide_scann/src/features/qr_scann/presentation/pages/qr_scann_page.dart';
 
 class HomePage extends StatefulWidget {
   static route() => MaterialPageRoute(

@@ -61,7 +61,8 @@ dependencies:
   curved_navigation_bar: ^1.0.6 #latest version
   # QR Code Scanner
   mobile_scanner: ^6.0.7
-
+  # Equatable
+  equatable: ^2.0.7
 
 
 dev_dependencies:

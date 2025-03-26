@@ -6,6 +6,7 @@ Future<void> initDependencies() async {
   _initUtils();
   _initAuth();
   _initHomePage();
+  _initQrScann();
 }
 
 void _initUtils() {
@@ -22,10 +23,6 @@ void _initUtils() {
 
   serviceLocator.registerLazySingleton(
     () => AppUserCubit(),
-  );
-
-  serviceLocator.registerLazySingleton(
-    () => QRScannCubit(),
   );
 }
 
@@ -79,4 +76,10 @@ void _initAuth() {
         appUserCubit: serviceLocator(),
       ),
     );
+}
+
+void _initQrScann() {
+  serviceLocator.registerLazySingleton(
+    () => QrScannBloc(),
+  );
 }

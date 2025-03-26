@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loadin_guide_scann/src/core/common/app_user/app_user_cubit.dart';
 import 'package:loadin_guide_scann/src/core/common/entities/user.dart';
 import 'package:loadin_guide_scann/src/core/usecase/usecase.dart';
-import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
 import 'package:loadin_guide_scann/src/features/auth/domain/usecases/current_user.dart';
 import 'package:loadin_guide_scann/src/features/auth/domain/usecases/user_login.dart';
 import 'package:loadin_guide_scann/src/features/auth/domain/usecases/user_logout.dart';

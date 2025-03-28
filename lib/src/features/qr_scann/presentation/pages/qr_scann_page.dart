@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/loading_guide.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/loading_guide_detail.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/loading_guide_header.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/material.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/mining_owner.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/owner_driver_vehicle.dart';
 import 'package:loadin_guide_scann/src/core/common/widgets/loader.dart';
 import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
 import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
@@ -50,7 +56,90 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple>
 
     // Let the bloc validate the code and trigger a state update.
     _scannerController.stop();
-    context.read<QrScannBloc>().add(QRScanned(code: code ?? ''));
+    context.read<QrScannBloc>().add(QRScanned(
+        code: code ?? '',
+        loadingGuide: LoadingGuide(
+          guideHeader: LoadingGuideHeader(
+            id: 1,
+            guideNumber: 'TLC-001',
+            createdAt: '2023-10-01',
+            status: 'active',
+            remarks: 'Test remarks',
+            vehicleId: 1,
+            driverId: 1,
+            driver: OwnerDriverVehicle(
+                id: 1,
+                name: 'Juan Juancito',
+                lastname: 'Polo Polencio',
+                numberIdentification: '1105617172',
+                direction: 'Av. 10 de agosto',
+                phone1: '0987654321',
+                phone2: '0987654321'),
+            ownerId: 1,
+            owner: OwnerDriverVehicle(
+              id: 1,
+              name: 'Juan Juancito',
+              lastname: 'Polo Polencio',
+              numberIdentification: '1105617172',
+              direction: 'Av. 10 de agosto',
+              phone1: '0987654321',
+              phone2: '0987654321',
+            ),
+            miningOwnerId: 1,
+            miningOwner: MiningOwner(
+              id: 1,
+              name: 'Juan Juancito',
+              lastname: 'Polo Polencio',
+              numberIdentification: '1105617172',
+              direction: 'Av. 10 de agosto',
+              email: '1@gmail.com',
+            ),
+          ),
+          guideDetails: [
+            LoadingGuideDetail(
+              id: 1,
+              quantity: 15,
+              unit: 'm^3',
+              miningOwnerMineMaterialId: 1,
+              status: 'active',
+              materialId: 1,
+              mineId: 1,
+              material: MaterialMine(
+                  id: 1,
+                  name: 'Piedra picapiedra pedrosa',
+                  status: 'Description of material 1',
+                  quantity: 50000.0),
+            ),
+            // LoadingGuideDetail(
+            //   id: 1,
+            //   quantity: 5,
+            //   unit: 'm^3',
+            //   miningOwnerMineMaterialId: 1,
+            //   status: 'active',
+            //   materialId: 1,
+            //   mineId: 1,
+            //   material: MaterialMine(
+            //       id: 1,
+            //       name: 'Piedra picapiedra pedrosa',
+            //       status: 'Description of material 1',
+            //       quantity: 50000.0),
+            // ),
+            // LoadingGuideDetail(
+            //   id: 1,
+            //   quantity: 5,
+            //   unit: 'm^3',
+            //   miningOwnerMineMaterialId: 1,
+            //   status: 'active',
+            //   materialId: 1,
+            //   mineId: 1,
+            //   material: MaterialMine(
+            //       id: 1,
+            //       name: 'Piedra picapiedra pedrosa',
+            //       status: 'Description of material 1',
+            //       quantity: 50000.0),
+            // ),
+          ],
+        )));
   }
 
   @override
@@ -66,7 +155,7 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple>
               Navigator.of(context)
                   .push(MaterialPageRoute(
                       builder: (context) =>
-                          SelectGuidePage(code: state.response)))
+                          SelectGuidePage(loadingGuide: state.loadingGuide)))
                   .then((result) async {
                 ///! TODO Return true when you pop on ResultScreen
                 if (result == true) {

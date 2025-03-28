@@ -1,10 +1,10 @@
-class Material {
+class MaterialMine {
   final int id;
   final String name;
   final String? status;
   final double? quantity;
 
-  const Material({
+  const MaterialMine({
     required this.id,
     required this.name,
     this.status,

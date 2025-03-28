@@ -1,10 +1,10 @@
-import 'material.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/material.dart';
 
 class Mine {
   final int id;
   final String name;
   final String authorizedDate;
-  final List<Material>? materials;
+  final List<MaterialMine>? materials;
   final String? status;
 
   const Mine({

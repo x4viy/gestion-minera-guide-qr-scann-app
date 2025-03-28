@@ -13,7 +13,9 @@ class QRLoading extends QRState {}
 
 class QRLoaded extends QRState {
   final String response;
-  const QRLoaded(this.response);
+  final LoadingGuide loadingGuide;
+
+  const QRLoaded(this.response, this.loadingGuide);
 
   @override
   List<Object?> get props => [response];

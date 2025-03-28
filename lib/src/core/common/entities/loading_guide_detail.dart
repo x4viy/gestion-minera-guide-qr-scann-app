@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loadin_guide_scann/src/core/common/entities/loading_guide_header.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/material.dart';
 
 class LoadingGuideDetail {
   final int id;
@@ -9,7 +10,7 @@ class LoadingGuideDetail {
   final String? status;
   final String? remarks;
   final int materialId;
-  final Material? material;
+  final MaterialMine? material;
   final int mineId;
   final Size? mine;
   final int? docGuideHeaderId;

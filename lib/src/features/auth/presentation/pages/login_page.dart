@@ -38,7 +38,11 @@ class _LoginPageState extends State<LoginPage> {
         child: BlocConsumer<AuthBloc, AuthState>(
           listener: (context, state) {
             if (state is AuthFailure) {
-              SnackBarUtil.showSnackBar(context, state.message);
+              SnackBarUtil.showSnackBar(
+                context,
+                state.message,
+                title: 'Error',
+              );
             } else if (state is AuthSuccess) {
               Navigator.pushAndRemoveUntil(
                 context,

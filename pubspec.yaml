@@ -63,6 +63,8 @@ dependencies:
   mobile_scanner: ^6.0.7
   # Equatable
   equatable: ^2.0.7
+  # Snack bar 
+  awesome_snackbar_content: ^0.1.5
 
 
 dev_dependencies:

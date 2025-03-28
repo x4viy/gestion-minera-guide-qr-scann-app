@@ -85,6 +85,7 @@ Widget _body(BuildContext context, HomePageState state) {
 Widget _buttomNavigationBar(BuildContext context, HomePageState state) {
   return CurvedNavigationBar(
     backgroundColor: Colors.black,
+    height: MediaQuery.of(context).size.height * 0.075,
     items: <Widget>[
       Icon(
         Icons.settings,

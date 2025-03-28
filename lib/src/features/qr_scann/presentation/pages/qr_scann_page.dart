@@ -9,6 +9,7 @@ import 'package:loadin_guide_scann/src/core/common/entities/owner_driver_vehicle
 import 'package:loadin_guide_scann/src/core/common/widgets/loader.dart';
 import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
 import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
+import 'package:loadin_guide_scann/src/features/guide/presentation/pages/guide_error_page.dart';
 import 'package:loadin_guide_scann/src/features/guide/presentation/pages/select_guide_page.dart';
 import 'package:loadin_guide_scann/src/features/home/presentation/widgets/overlay_qr.dart';
 import 'package:loadin_guide_scann/src/features/qr_scann/presentation/bloc/qr_scann_bloc.dart';
@@ -110,20 +111,20 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple>
                   status: 'Description of material 1',
                   quantity: 50000.0),
             ),
-            // LoadingGuideDetail(
-            //   id: 1,
-            //   quantity: 5,
-            //   unit: 'm^3',
-            //   miningOwnerMineMaterialId: 1,
-            //   status: 'active',
-            //   materialId: 1,
-            //   mineId: 1,
-            //   material: MaterialMine(
-            //       id: 1,
-            //       name: 'Piedra picapiedra pedrosa',
-            //       status: 'Description of material 1',
-            //       quantity: 50000.0),
-            // ),
+            LoadingGuideDetail(
+              id: 1,
+              quantity: 5,
+              unit: 'm^3',
+              miningOwnerMineMaterialId: 1,
+              status: 'active',
+              materialId: 1,
+              mineId: 1,
+              material: MaterialMine(
+                  id: 1,
+                  name: 'Piedra picapiedra pedrosa',
+                  status: 'Description of material 1',
+                  quantity: 50000.0),
+            ),
             // LoadingGuideDetail(
             //   id: 1,
             //   quantity: 5,
@@ -155,9 +156,13 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple>
               Navigator.of(context)
                   .push(MaterialPageRoute(
                       builder: (context) =>
+                          //  GuideErrorPage(
+                          //       errorList: [
+                          //         'No se encunetra en la lista de seleecion',
+                          //       ],
+                          //     ))
                           SelectGuidePage(loadingGuide: state.loadingGuide)))
                   .then((result) async {
-                ///! TODO Return true when you pop on ResultScreen
                 if (result == true) {
                   logger.i('Restarting the scanner after popping the page');
                   await _scannerController.start();

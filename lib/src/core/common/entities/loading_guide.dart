@@ -9,4 +9,13 @@ class LoadingGuide {
     required this.guideHeader,
     required this.guideDetails,
   });
+
+  factory LoadingGuide.fromJson(Map<String, dynamic> json) {
+    return LoadingGuide(
+      guideHeader: LoadingGuideHeader.fromJson(json['guideHeader']),
+      guideDetails: (json['guideDetails'] as List)
+          .map((e) => LoadingGuideDetail.fromJson(e))
+          .toList(),
+    );
+  }
 }

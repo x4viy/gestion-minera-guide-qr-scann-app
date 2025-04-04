@@ -1,17 +1,20 @@
-import 'package:loadin_guide_scann/src/core/common/entities/material.dart';
-
+// mine.dart
 class Mine {
   final int id;
   final String name;
-  final String authorizedDate;
-  final List<MaterialMine>? materials;
-  final String? status;
+  final String? authorizedDate;
 
-  const Mine({
+  Mine({
     required this.id,
     required this.name,
-    required this.authorizedDate,
-    this.materials,
-    this.status,
+    this.authorizedDate,
   });
+
+  factory Mine.fromJson(Map<String, dynamic> json) {
+    return Mine(
+      id: json['id'],
+      name: json['name'],
+      authorizedDate: json['authorized_date'],
+    );
+  }
 }

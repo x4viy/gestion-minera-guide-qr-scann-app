@@ -14,8 +14,6 @@ class QrScannBloc extends Bloc<QrScannEvent, QRState> {
   }
 
   Future<void> _onQRScanned(QRScanned event, Emitter<QRState> emit) async {
-    // Prevent processing the same code twice.
-
     if (event.code.isEmpty) {
       emit(QRError('Error scanning the QR code is empty'));
     } else {

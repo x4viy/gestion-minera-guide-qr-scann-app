@@ -367,7 +367,8 @@ Widget vehicleDetailCards(BuildContext context, LoadingGuide loadingGuide) {
                   ),
                   Text('Metraje'),
                   Text(
-                    loadingGuide.guideHeader.vehicle?.volume.toString() ?? '15',
+                    loadingGuide.guideHeader.vehicle?.volume.toString() ??
+                        'No especificado',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

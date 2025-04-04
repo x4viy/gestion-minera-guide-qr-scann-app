@@ -1,13 +1,16 @@
-class MaterialMine {
+class MineMaterial {
   final int id;
   final String name;
-  final String? status;
-  final double? quantity;
 
-  const MaterialMine({
+  MineMaterial({
     required this.id,
     required this.name,
-    this.status,
-    this.quantity,
   });
+
+  factory MineMaterial.fromJson(Map<String, dynamic> json) {
+    return MineMaterial(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
 }

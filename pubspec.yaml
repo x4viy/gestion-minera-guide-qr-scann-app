@@ -65,6 +65,9 @@ dependencies:
   equatable: ^2.0.7
   # Snack bar 
   awesome_snackbar_content: ^0.1.5
+  # Socket connection
+  web_socket_channel: 3.0.2
+
 
 
 dev_dependencies:

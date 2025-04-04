@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loadin_guide_scann/src/core/common/entities/loading_guide.dart';
-import 'package:loadin_guide_scann/src/core/common/entities/loading_guide_detail.dart';
-import 'package:loadin_guide_scann/src/core/common/entities/loading_guide_header.dart';
-import 'package:loadin_guide_scann/src/core/common/entities/material.dart';
-import 'package:loadin_guide_scann/src/core/common/entities/mining_owner.dart';
-import 'package:loadin_guide_scann/src/core/common/entities/owner_driver_vehicle.dart';
-import 'package:loadin_guide_scann/src/core/common/widgets/loader.dart';
 import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
 import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
-import 'package:loadin_guide_scann/src/features/guide/presentation/pages/guide_error_page.dart';
 import 'package:loadin_guide_scann/src/features/guide/presentation/pages/select_guide_page.dart';
 import 'package:loadin_guide_scann/src/features/home/presentation/widgets/overlay_qr.dart';
 import 'package:loadin_guide_scann/src/features/qr_scann/presentation/bloc/qr_scann_bloc.dart';
@@ -58,89 +51,62 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple>
     // Let the bloc validate the code and trigger a state update.
     _scannerController.stop();
     context.read<QrScannBloc>().add(QRScanned(
-        code: code ?? '',
-        loadingGuide: LoadingGuide(
-          guideHeader: LoadingGuideHeader(
-            id: 1,
-            guideNumber: 'TLC-001',
-            createdAt: '2023-10-01',
-            status: 'active',
-            remarks: 'Test remarks',
-            vehicleId: 1,
-            driverId: 1,
-            driver: OwnerDriverVehicle(
-                id: 1,
-                name: 'Juan Juancito',
-                lastname: 'Polo Polencio',
-                numberIdentification: '1105617172',
-                direction: 'Av. 10 de agosto',
-                phone1: '0987654321',
-                phone2: '0987654321'),
-            ownerId: 1,
-            owner: OwnerDriverVehicle(
-              id: 1,
-              name: 'Juan Juancito',
-              lastname: 'Polo Polencio',
-              numberIdentification: '1105617172',
-              direction: 'Av. 10 de agosto',
-              phone1: '0987654321',
-              phone2: '0987654321',
-            ),
-            miningOwnerId: 1,
-            miningOwner: MiningOwner(
-              id: 1,
-              name: 'Juan Juancito',
-              lastname: 'Polo Polencio',
-              numberIdentification: '1105617172',
-              direction: 'Av. 10 de agosto',
-              email: '1@gmail.com',
-            ),
-          ),
-          guideDetails: [
-            LoadingGuideDetail(
-              id: 1,
-              quantity: 15,
-              unit: 'm^3',
-              miningOwnerMineMaterialId: 1,
-              status: 'active',
-              materialId: 1,
-              mineId: 1,
-              material: MaterialMine(
-                  id: 1,
-                  name: 'Piedra picapiedra pedrosa',
-                  status: 'Description of material 1',
-                  quantity: 50000.0),
-            ),
-            LoadingGuideDetail(
-              id: 1,
-              quantity: 5,
-              unit: 'm^3',
-              miningOwnerMineMaterialId: 1,
-              status: 'active',
-              materialId: 1,
-              mineId: 1,
-              material: MaterialMine(
-                  id: 1,
-                  name: 'Piedra picapiedra pedrosa',
-                  status: 'Description of material 1',
-                  quantity: 50000.0),
-            ),
-            // LoadingGuideDetail(
-            //   id: 1,
-            //   quantity: 5,
-            //   unit: 'm^3',
-            //   miningOwnerMineMaterialId: 1,
-            //   status: 'active',
-            //   materialId: 1,
-            //   mineId: 1,
-            //   material: MaterialMine(
-            //       id: 1,
-            //       name: 'Piedra picapiedra pedrosa',
-            //       status: 'Description of material 1',
-            //       quantity: 50000.0),
-            // ),
-          ],
-        )));
+        code: '123',
+        loadingGuide: LoadingGuide.fromJson({
+          "guideHeader": {
+            "id": 4,
+            "guide_number": "b7f07c80-3336-4187-8097-4ced50e6cc4b",
+            "status": "10",
+            "remarks": "obs 22",
+            "miningowner_id": 1,
+            "owner_driver_vehicles_id": 1,
+            "vehicle_id": 1,
+            "driver_id": 2,
+            "owner_id": 1,
+            "created_by": 5,
+            "updated_by": null,
+            "createdAt": "2025-04-03T15:02:48.035Z",
+            "updatedAt": "2025-04-03T15:02:48.035Z",
+            "VehicleId": {"id": 1},
+            "DriverId": {
+              "id": 2,
+              "name": "juancho",
+              "lastname": "conductor_de_jose"
+            },
+            "OwnerId": {"id": 1, "name": "jose", "lastname": "duenio2"},
+            "MiningOwnerId": {
+              "id": 1,
+              "name": "camilo",
+              "lastname": "legal",
+              "number_identification": "1234567890",
+              "institution_name": "institucion"
+            }
+          },
+          "guideDetails": [
+            {
+              "id": 4,
+              "quantity": 14,
+              "unit": "M3",
+              "status": "10",
+              "remarks": "obs 2",
+              "material_id": 1,
+              "mine_id": 1,
+              "loading_guide_header_id": 4,
+              "miningowner_mine_material_id": 1,
+              "created_by": 5,
+              "updated_by": null,
+              "createdAt": "2025-04-03T15:02:48.046Z",
+              "updatedAt": "2025-04-03T15:02:48.046Z",
+              "MiningOwnerMineMaterialId": {"id": 1, "quantity": 500},
+              "MineId": {
+                "id": 1,
+                "name": "MIna1",
+                "authorized_date": "2025-03-05"
+              },
+              "MaterialId": {"id": 1, "name": "Piedra"}
+            }
+          ]
+        })));
   }
 
   @override

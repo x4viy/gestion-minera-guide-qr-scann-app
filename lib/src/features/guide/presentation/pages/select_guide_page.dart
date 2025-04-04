@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:loadin_guide_scann/src/core/common/entities/loading_guide.dart';
+import 'package:loadin_guide_scann/src/core/common/entities/loading_set.dart';
 import 'package:loadin_guide_scann/src/core/theme/app_pallete.dart';
+import 'package:loadin_guide_scann/src/core/utils/constants/variables_constat.dart';
 import 'package:loadin_guide_scann/src/features/guide/presentation/widgets/person_detail.dart';
 
 class SelectGuidePage extends StatelessWidget {
-  static route({required LoadingGuide loadingGuide}) => MaterialPageRoute(
-        builder: (context) => SelectGuidePage(loadingGuide: loadingGuide),
+  static route({required LoadingSetServer loadingSetServer}) =>
+      MaterialPageRoute(
+        builder: (context) =>
+            SelectGuidePage(loadingSetServer: loadingSetServer),
       );
-  const SelectGuidePage({super.key, required this.loadingGuide});
-  final LoadingGuide loadingGuide;
+  const SelectGuidePage({super.key, required this.loadingSetServer});
+  final LoadingSetServer loadingSetServer;
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +52,15 @@ class SelectGuidePage extends StatelessWidget {
               delegate: SliverChildListDelegate([
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                  child: headerMaterialDetailStack(context, loadingGuide,
+                  child: headerMaterialDetailStack(
+                      context, loadingSetServer.loadingGuide,
                       detailHeight: detailHeight),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
-                  child: vehicleDetailCards(context, loadingGuide),
+                  child: vehicleDetailCards(context, loadingSetServer),
                 ),
-                personsDetails(context, loadingGuide),
+                personsDetails(context, loadingSetServer.loadingGuide),
               ]),
             ),
             // Second SliverList: a list with a single card per row
@@ -322,7 +327,7 @@ Widget materialDetailTotal(BuildContext context,
   ]);
 }
 
-Widget vehicleDetailCards(BuildContext context, LoadingGuide loadingGuide) {
+Widget vehicleDetailCards(BuildContext context, LoadingSetServer lss) {
   double mediaQueryHeight = MediaQuery.of(context).size.height;
   double mediaQueryWidth = MediaQuery.of(context).size.width;
   return Center(
@@ -346,7 +351,7 @@ Widget vehicleDetailCards(BuildContext context, LoadingGuide loadingGuide) {
                   ),
                   Text('Placa'),
                   Text(
-                    loadingGuide.guideHeader.vehicle?.card ?? 'ABC-123',
+                    lss.vehicle.card ?? unavailableText,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -367,8 +372,7 @@ Widget vehicleDetailCards(BuildContext context, LoadingGuide loadingGuide) {
                   ),
                   Text('Metraje'),
                   Text(
-                    loadingGuide.guideHeader.vehicle?.volume.toString() ??
-                        'No especificado',
+                    lss.vehicle.volume.toString(),
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -398,17 +402,20 @@ Widget personsDetails(BuildContext context, LoadingGuide loadingGuide) {
               PersonDetail(
                   label: 'Titular minero',
                   icon: Icons.account_circle,
-                  text: 'Juan juancito polo polencio de nuncajamas',
+                  text:
+                      "${loadingGuide.guideHeader.miningOwner?.name ?? ''} ${loadingGuide.guideHeader.miningOwner?.lastname ?? ''}",
                   width: personDetailWidht),
               PersonDetail(
                   label: 'Titular del vehículo',
                   icon: Icons.supervisor_account,
-                  text: 'Juan juancito polo polencio',
+                  text:
+                      "${loadingGuide.guideHeader.owner?.name ?? ''} ${loadingGuide.guideHeader.owner?.lastname ?? ''}",
                   width: personDetailWidht),
               PersonDetail(
                   label: 'Conductor del vehículo',
                   icon: Icons.sports_motorsports_rounded,
-                  text: 'Juan juancito polo polencio',
+                  text:
+                      "${loadingGuide.guideHeader.driver?.name ?? ''} ${loadingGuide.guideHeader.driver?.lastname ?? ''}",
                   width: personDetailWidht),
             ],
           ),

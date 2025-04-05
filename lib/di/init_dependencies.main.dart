@@ -24,6 +24,11 @@ void _initUtils() {
   serviceLocator.registerLazySingleton(
     () => AppUserCubit(),
   );
+
+  serviceLocator.registerLazySingleton(
+    () => WebSocketCubit(
+        socketUrl: getSocketLoginPath(), appSecretsService: serviceLocator()),
+  );
 }
 
 void _initHomePage() {
@@ -80,6 +85,8 @@ void _initAuth() {
 
 void _initQrScann() {
   serviceLocator.registerLazySingleton(
-    () => QrScannBloc(),
+    () => QrScannBloc(
+      webSocketCubit: serviceLocator(),
+    ),
   );
 }

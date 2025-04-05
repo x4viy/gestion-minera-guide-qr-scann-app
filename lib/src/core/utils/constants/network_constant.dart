@@ -1,6 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final baseUrl = dotenv.get('BASE_URL');
+final socketUrl = dotenv.get('SOCKET_URL');
 final sensorsPort = dotenv.get('SENSORS_PORT');
 final backendPort = dotenv.get('BACKEND_PORT');
 
@@ -16,5 +17,5 @@ String getUserLoginPath() {
 }
 
 String getSocketLoginPath() {
-  return '$baseUrl:$sensorsPort$selectGuide';
+  return '$socketUrl:$sensorsPort$selectGuide';
 }

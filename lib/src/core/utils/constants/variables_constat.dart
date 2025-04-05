@@ -5,3 +5,4 @@ final Logger logger = Logger();
 // Timeout interval for scanning a QR code.
 const scannInterval = Duration(milliseconds: 300);
 const unavailableText = 'No disponible';
+const timeoutWsConnect = 10;

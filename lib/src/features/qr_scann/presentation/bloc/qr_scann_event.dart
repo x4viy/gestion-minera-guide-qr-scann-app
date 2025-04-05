@@ -10,9 +10,8 @@ sealed class QrScannEvent extends Equatable {
 /// Event triggered when a QR code is scanned.
 final class QRScanned extends QrScannEvent {
   final String code;
-  final LoadingSetServer loadingSetServer;
 
-  const QRScanned({required this.code, required this.loadingSetServer});
+  const QRScanned({required this.code});
 
   @override
   List<Object> get props => [code];
